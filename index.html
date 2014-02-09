@@ -43,36 +43,48 @@
   <script type="text/x-handlebars" id="doubles">
     <div><span class="glyphicon glyphicon-star"></span> Doubles Tables <span class="glyphicon glyphicon-star"></span> </div>
     {{#each item in model}}
-      {{table-lists table=item}}
+      <div class="col-xs-6 col-md-3">
+        {{#link-to 'double' item classNames="thumbnail"}}
+          {{table-lists table=item}}
+        {{/link-to}}
+      </div>
     {{/each}}
   </script>
 
   <script type="text/x-handlebars" id="double">
     {{table-details table=this}}
+    <div style="float:right"> <!-- ToDo: Put in css --!>
+      <button type="button" class="btn btn-warning">Cancel</button>
+      <button type="button" {{action 'submitDoublesScore'}} class="btn btn-primary">Submit</button>
+    </div>
   </script>
 
   <script type="text/x-handlebars" id="singles">
     <div><span class="glyphicon glyphicon-star"></span> Singles Tables <span class="glyphicon glyphicon-star"></span> </div>
     {{#each item in model}}
-      {{table-lists table=item}}
+      <div class="col-xs-6 col-md-3">
+        {{#link-to 'single' item classNames="thumbnail"}}
+          {{table-lists table=item}}
+        {{/link-to}}
+      </div>
     {{/each}}
   </script>
 
   <script type="text/x-handlebars" id="single">
     {{table-details table=this}}
+    <div style="float:right"> <!-- ToDo: Put in css --!>
+      <button type="button" class="btn btn-warning">Cancel</button>
+      <button type="button" {{action 'submitSinglesScore'}} class="btn btn-primary">Submit</button>
+    </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name='components/table-lists'>
-    <div class="col-xs-6 col-md-3">
-      {{#link-to 'double' table classNames="thumbnail"}}
-      <div>Table: {{table.number}}</div>
-        <ul style="columns: 2; -webkit-columns: 2;-moz-columns: 2;"> <!-- ToDo: Put in css --!>
-          {{#each player in table.players}}
-            <li>{{player.fname}} {{player.lname}}</li>
-          {{/each}}
-        </ul>
-      {{/link-to}}
-    </div>
+    <div>Table: {{table.number}}</div>
+    <ul style="columns: 2; -webkit-columns: 2;-moz-columns: 2;"> <!-- ToDo: Put in css --!>
+      {{#each player in table.players}}
+        <li>{{player.fname}} {{player.lname}}</li>
+      {{/each}}
+    </ul>
   </script>
 
   <script type="text/x-handlebars" data-template-name='components/table-details'>
@@ -101,10 +113,6 @@
           </tr>
         {{/each}}
       </table>
-    </div>
-    <div style="float:right"> <!-- ToDo: Put in css --!>
-      <button type="button" class="btn btn-warning">Cancel</button>
-      <button type="button" class="btn btn-primary">Submit</button>
     </div>
   </script>
 

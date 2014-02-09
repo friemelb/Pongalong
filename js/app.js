@@ -30,6 +30,24 @@ App.SinglesRoute = Ember.Route.extend({
   }
 });
 
+App.DoubleController = Ember.ObjectController.extend({
+  actions:{
+    submitDoublesScore: function(){
+      //this.get('model');
+      console.log('submit doubles score');
+    }
+  }
+});
+
+App.SingleController = Ember.ObjectController.extend({
+  actions:{
+    submitSinglesScore: function(){
+      //this.get('model');
+      console.log('submit singles score');
+    }
+  }
+});
+
 // Data
 App.ApplicationAdapter = DS.FixtureAdapter.extend();
 //App.ApplicationAdapter = DS.RESTAdapter.extend();
