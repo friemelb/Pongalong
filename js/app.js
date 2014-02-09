@@ -44,47 +44,75 @@ App.Single = DS.Model.extend({
   players: DS.attr()
 });
 
-  /*
-    This is a example data dump of a player 
-    id: 200,
-    fname: 'Ping',
-    lname: 'Pong',
-    rank: 1,
-    score: [11,11,11,11,11,11]
-  */
-
 App.Double.FIXTURES = [
   {
     id: 100,
     number: 1,
-    players: ['p1', 'p2', 'p3', 'p4']
-  },
-  {
-    id: 101,
-    number: 2,
-    players: ['p5', 'p6', 'p7', 'p8']
+    players: [
+      {    
+        id: 200,
+        fname: 'Ping',
+        lname: 'Pong',
+        rank: 1,
+        scores: [11,11,11,11,11,11]
+      },{    
+        id: 201,
+        fname: 'Ping',
+        lname: 'Pong',
+        rank: 1,
+        scores: [11,11,11,11,11,11]
+      },{    
+        id: 202,
+        fname: 'Ping',
+        lname: 'Pong',
+        rank: 1,
+        scores: [11,11,11,11,11,11]
+      },{    
+        id: 203,
+        fname: 'Ping',
+        lname: 'Pong',
+        rank: 1,
+        scores: [11,11,11,11,11,11]
+      }
+    ]
   }
 ];
 
 App.Single.FIXTURES = [
   {
-    id: 100,
-    number: 1,
-    players: ['p1', 'p2']
-  },
-  {
     id: 101,
-    number: 2,
-    players: ['p3', 'p4']
+    number: 1,
+    players: [
+      {    
+        id: 200,
+        fname: 'Ping',
+        lname: 'Pong',
+        rank: 1,
+        scores: ['','','','','','']
+      },{    
+        id: 201,
+        fname: 'Ping',
+        lname: 'Pong',
+        rank: 1,
+        scores: ['','','','','','']
+      }
+    ]
   },
   {
     id: 102,
-    number: 3,
-    players: ['p5', 'p6']
-  },
-  {
-    id: 103,
-    number: 4,
-    players: ['p7', 'p8']
+    number: 2,
+    players: [{    
+        id: 202,
+        fname: 'Ping',
+        lname: 'Pong',
+        rank: 1,
+        scores: ['','','','','','']
+      },{    
+        id: 203,
+        fname: 'Ping',
+        lname: 'Pong',
+        rank: 1,
+        scores: ['','','','','','']
+      }]
   }
 ];

@@ -25,11 +25,19 @@
   </script>
 
   <script type="text/x-handlebars" id="index">
-    <ul class="">
-      <li>{{#link-to 'singles'}}Singles{{/link-to}}</li>
-      <li>{{#link-to 'doubles'}}Doubles{{/link-to}}</li>
-      <li>{{#link-to 'glyph'}}Testing{{/link-to}}</li>
-    </ul>
+    <h2>Ping Pong League</h2>
+
+    <h4>Information</h4>
+
+    <span>
+    Norem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi
+    </span>
+
+    <div>
+      <span>{{#link-to 'singles'}}Singles{{/link-to}}</span>
+      <span>{{#link-to 'doubles'}}Doubles{{/link-to}}</span>
+    </div>
+
   </script>
 
   <script type="text/x-handlebars" id="doubles">
@@ -54,18 +62,13 @@
     {{table-details table=this}}
   </script>
 
-  <script type="text/x-handlebars" id="glyph">
-    <span class="glyphicon glyphicon-arrow-up"></span>
-    <span class="glyphicon glyphicon-arrow-down"></span>
-  </script>
-
   <script type="text/x-handlebars" data-template-name='components/table-lists'>
     <div class="col-xs-6 col-md-3">
       {{#link-to 'double' table classNames="thumbnail"}}
       <div>Table: {{table.number}}</div>
         <ul style="columns: 2; -webkit-columns: 2;-moz-columns: 2;"> <!-- ToDo: Put in css --!>
           {{#each player in table.players}}
-            <li>{{player}}</li>
+            <li>{{player.fname}} {{player.lname}}</li>
           {{/each}}
         </ul>
       {{/link-to}}
@@ -73,12 +76,41 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name='components/table-details'>
-    <div>Table {{table.number}}</div>
-    <ul>
-      {{#each player in table.players}}
-      <li>{{player}}</li>
-      {{/each}}
-    </ul>
+    <div class="panel panel-default">
+      <div class="panel-heading">Table {{table.number}}</div>
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Match One</th> 
+          <th>Match Two</th>
+          <th>Match Three</th>
+          <th>Match Four</th>
+          <th>Match Five</th>
+          <th>Match Six</th>
+        </tr>
+        {{#each player in table.players}}
+          <tr>
+            <td>{{player.fname}} {{player.lname}}</td>
+            {{#each score in player.scores}}
+            <td>
+              <div class="input-group input-group">
+                <input type="text" class="form-control" placeholder="Score" value={{score}}>
+              </div>
+            </td>
+            {{/each}}
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+    <div style="float:right"> <!-- ToDo: Put in css --!>
+      <button type="button" class="btn btn-warning">Cancel</button>
+      <button type="button" class="btn btn-primary">Submit</button>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="glyph">
+    <span class="glyphicon glyphicon-arrow-up"></span>
+    <span class="glyphicon glyphicon-arrow-down"></span>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
