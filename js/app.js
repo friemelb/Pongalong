@@ -33,6 +33,7 @@ App.SinglesRoute = Ember.Route.extend({
 App.DoubleController = Ember.ObjectController.extend({
   actions:{
     submitDoublesScore: function(){
+      debugger
       //this.get('model');
       console.log('submit doubles score');
     }
@@ -42,6 +43,7 @@ App.DoubleController = Ember.ObjectController.extend({
 App.SingleController = Ember.ObjectController.extend({
   actions:{
     submitSinglesScore: function(){
+      debugger
       //this.get('model');
       console.log('submit singles score');
     }
@@ -60,6 +62,13 @@ App.Double = DS.Model.extend({
 App.Single = DS.Model.extend({
   number: DS.attr(),
   players: DS.attr()
+});
+
+App.Player = DS.Model.extend({
+  fname: DS.attr(),
+  lname: DS.attr(),
+  rank: DS.attr(),
+  scores: []
 });
 
 App.Double.FIXTURES = [
@@ -103,14 +112,14 @@ App.Single.FIXTURES = [
     players: [
       {    
         id: 200,
-        fname: 'Ping',
-        lname: 'Pong',
+        fname: 'Ping 1',
+        lname: 'Pong 1',
         rank: 1,
         scores: ['','','','','','']
       },{    
         id: 201,
-        fname: 'Ping',
-        lname: 'Pong',
+        fname: 'Ping 2',
+        lname: 'Pong 2',
         rank: 1,
         scores: ['','','','','','']
       }
