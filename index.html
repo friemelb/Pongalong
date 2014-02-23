@@ -91,15 +91,8 @@
     <div class="panel panel-default">
       <div class="panel-heading">Table {{table.number}}</div>
       <table class="table">
-        <tr>
-          <th>Name</th>
-          <th>Match One</th> 
-          <th>Match Two</th>
-          <th>Match Three</th>
-          <th>Match Four</th>
-          <th>Match Five</th>
-          <th>Match Six</th>
-        </tr>
+        {{#tableHeaders table.players}}
+        {{/tableHeaders}}
         {{#each player in table.players}}
           <tr>
             <td>{{player.fname}} {{player.lname}}</td>
